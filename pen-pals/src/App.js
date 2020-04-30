@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "./components/Header";
 import "./App.css";
 import Form from "./components/Form";
+import Homepage from "./pages/Homepage";
 
 function App() {
   return (
     <div className="content">
-      <Header />
-      <Form />
+      <Homepage />
+      {/* <Form /> */}
     </div>
   );
 }
