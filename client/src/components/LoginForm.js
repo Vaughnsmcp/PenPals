@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 
-function Form(props) {
+function LoginForm(props) {
   return (
     <div className="container">
       <div className="form-group">
@@ -11,13 +11,6 @@ function Form(props) {
           value={props.username}
           type="text"
           placeholder="username"
-        ></input>
-        <label htmlFor="email">Email</label>
-        <input
-          className="form-control"
-          value={props.email}
-          type="text"
-          placeholder="email"
         ></input>
         <label htmlFor="password">Password</label>
         <input
@@ -32,7 +25,7 @@ function Form(props) {
   );
 }
 
-export default Form;
+export default LoginForm;
 
 
 
