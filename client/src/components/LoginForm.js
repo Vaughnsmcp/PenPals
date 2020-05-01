@@ -34,7 +34,9 @@ function LoginForm() {
           onChange={event => setPassword(event.target.value)}
         ></input>
       </form>
-      <Button disabled={!validateForm()} type="submit">
+      <Button disabled={!validateForm()} type="submit"
+      >
+
           Login
       </Button>
       <div className="nav-item">
