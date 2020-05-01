@@ -9,8 +9,8 @@ function Homepage() {
       <Header message="Welcome to Pen Pals!!!!!!!!!!!!!!!!!" />
       <Wrapper>
         <div className="row">
-          {writers.map((writer, index) => (
-            <div className="col-md-12" key={index}>
+          {writers.map((writer) => (
+            <div className="col-md-6">
               <div className="card">
                 <h1>{writer.name}</h1>
                 <div className="img-container">

@@ -11,6 +11,15 @@ const writers = [
       "Raven handlers, type writer, a 'Robert Frost' type to balance me out",
     goals: "Outlive my young cousin",
   },
+  {
+    name: "Jane Austen",
+    image: "https://cdn.theatlantic.com/thumbor/fgrj4_Ci858UpfBsWCYKMGkmlCQ=/0x194:1000x757/720x405/media/img/mt/2018/04/gettyimages_517402698_1024-1/original.jpg",
+    info: "I like to spend afternoons riding my horse around the english countryside. I also like to do my writing in the early mornings.",
+    link: "https://www.janeausten.org/jane-austen-books.asp",
+    skills: "Comedic romantic comedies, scoffing at the rich and arrogant.",
+    inquiry: "Looking to add more adventure to my novels. looking for adventurous types to collaborate with.",
+    goals: "Write a lengthy adventure trilogy"
+  }
 ];
 
 export default writers;
