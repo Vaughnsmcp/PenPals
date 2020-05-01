@@ -11,7 +11,18 @@ function NavBar() {
                     window.location.pathname === `/` ? `nav-link active` : `nav-link`
                 }
                 >
-                    Welcome to Penpals! Where poets and writers unite!
+                    Home
+                    {/* Welcome to Penpals! Where poets and writers unite! */}
+                </Link>
+            </li>
+            <li className="nav-item">
+                <Link
+                to="/signup"
+                className={
+                    window.location.pathname === `/signup` ? `nav-link active` : `nav-link`
+                }
+                >
+                    Create An Account With Us!
                 </Link>
             </li>
             <li className="nav-item">
@@ -21,7 +32,7 @@ function NavBar() {
                     window.location.pathname === `/login` ? `nav-link active` : `nav-link`
                 }
                 >
-                    Create an account with us!
+                    Welcome Back! Login Here
                 </Link>
             </li>
         </ul>
