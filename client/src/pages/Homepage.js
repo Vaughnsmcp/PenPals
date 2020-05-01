@@ -6,11 +6,11 @@ import writers from "../writers";
 function Homepage() {
   return (
     <>
-      <Header message="Welcome to Pen Pals!!!!!!!!!!!!!!!!!" />
+      <Header message="Welcome to Pen Pals!!!!!!!!!!!!!!!!!"/>
       <Wrapper>
         <div className="row">
-          {writers.map((writer) => (
-            <div className="col-md-6">
+          {writers.map((writer, index) => (
+            <div className="col-md-6" key={index}>
               <div className="card">
                 <h1>{writer.name}</h1>
                 <div className="img-container">
