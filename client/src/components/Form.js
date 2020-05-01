@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "./Button";
+import { Link } from 'react-router-dom';
+
 
 function Form(props) {
   return (
@@ -27,7 +29,19 @@ function Form(props) {
           placeholder="password"
         ></input>
       </div>
-      <Button />
+      <Button>
+        Sign Up
+        </Button>
+        <div className="nav-item">
+                <Link
+                to="/login"
+                className={
+                    window.location.pathname === `/login` ? `nav-link active` : `nav-link`
+                }
+                >
+                   Do you already have an account? Click here to login!
+                </Link>
+                </div>
     </div>
   );
 }

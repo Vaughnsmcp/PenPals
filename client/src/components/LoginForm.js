@@ -1,26 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "./Button";
+import { Link } from 'react-router-dom';
 
-function LoginForm(props) {
+function LoginForm() {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    function validateForm() {
+        return username.length > 0 && password.length > 0;
+    }
+    function handleFormSubmit(event) {
+        event.preventDefault();
+    }
   return (
     <div className="container">
-      <div className="form-group">
+      <form onSubmit={handleFormSubmit}>
+        
+          
         <label htmlFor="username">Username</label>
         <input
           className="form-control"
-          value={props.username}
-          type="text"
+          value={username}
+          type="username"
           placeholder="username"
+          onChange={event => setUsername(event.target.value)}
         ></input>
         <label htmlFor="password">Password</label>
         <input
           className="form-control"
-          value={props.password}
-          type="text"
+          value={password}
+          type="password"
           placeholder="password"
+          onChange={event => setPassword(event.target.value)}
         ></input>
-      </div>
-      <Button />
+      </form>
+      <Button disabled={!validateForm()} type="submit">
+          Login
+      </Button>
+      <div className="nav-item">
+                <Link
+                to="/signup"
+                className={
+                    window.location.pathname === `/signup` ? `nav-link active` : `nav-link`
+                }
+                >
+                    Are you new here? Click here to create an account!
+                </Link>
+                </div>
     </div>
   );
 }
