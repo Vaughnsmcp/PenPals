@@ -2,13 +2,14 @@
  import Form from '../components/Form';
  import Header from '../components/Header';
 
- function SignUp() {
-
+ function SignUp(props) {
+    console.log(props);
      return (
          <>
          <Header message={"Sign-Up!"}/>
 
-     <Form/>
+     <Form history={props.history}/>
+     
      </>
      );
  }
