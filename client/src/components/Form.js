@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Button from "./Button";
+
 import { Link } from 'react-router-dom';
 
 
-function Form(props) {
+function Form() {
   const [formObject, setFormObject] = useState ({});
   const onChange = (event) => {
     const {name, value} = event.target; 
@@ -42,8 +42,6 @@ function Form(props) {
           placeholder="password"
         ></input>
       </div>
-      {/* <Button */}
-        {/* className="nav-item"> */}
         <Link
           to="/portfolio"
           className={
@@ -52,8 +50,6 @@ function Form(props) {
         >
           Sign Up
         </Link>
-      
-        {/* </Button> */}
       <div className="nav-item">
         <Link
           to="/login"
