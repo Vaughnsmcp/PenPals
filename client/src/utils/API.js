@@ -1,8 +1,7 @@
 import axios from "axios";
 // help!
 export default {
-  getPoet() {
+  getPoets() {
     return axios.get(`/api/poets`);
-  },
-  savePoet()
+  }
 };
