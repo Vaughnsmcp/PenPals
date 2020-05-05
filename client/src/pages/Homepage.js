@@ -1,12 +1,24 @@
-import React from "react";
+
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Wrapper from "../components/Wrapper";
-import writers from "../writers";
+import API from '../utils/API';
 
 function Homepage() {
+  const [writers, setWriters] = useState([]);
+
+  useEffect(() => {
+    loadWriters();
+  }, []);
+  function loadWriters() {
+    API.getPoets()
+    .then(res => setWriters(res.data))
+    .catch(err => console.error(err));
+  }
+  
   return (
     <>
-      <Header message="Welcome to Pen Pals!!!!!!!!!!!!!!!!!"/>
+      <Header message="Welcome to Pen Pals"/>
       <Wrapper>
         <div className="row">
           {writers.map((writer, index) => (
@@ -14,7 +26,7 @@ function Homepage() {
               <div className="card">
                 <h1>{writer.name}</h1>
                 <div className="img-container">
-                  <img alt="poe" class="card-img-top" src={writer.image} />
+                  <img alt="poe" className="card-img-top" src={writer.image} />
                 </div>
                 <div className="content">
                   <h2>Bio:</h2>
