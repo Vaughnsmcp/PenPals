@@ -1,9 +1,7 @@
 const mongoose = require(`mongoose`);
 const Schema = mongoose.Schema;
 const poetSchema = new Schema({
-  // username: { Type: String, require: true },
-  // email: { Type: String, require: true },
-  // password: { Type: String, require: true },
+  
   name: { type: String, required: true },
   image:{ type: String},
   // info can contain skills and goals

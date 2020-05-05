@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import API from '../utils/API';
+import Button from './Button';
 
 
 function Form() {
@@ -10,6 +11,24 @@ function Form() {
     setFormObject ({...formObject, [name]: value}); 
   }
   console.log(formObject);
+
+  function handleFormSubmit(event) {
+    console.log("handleFormSubmit");
+    // event.preventDefault();
+    if (formObject.username && formObject.email && formObject.password){
+      API.createSignUp({
+        username: formObject.username,
+        email: formObject.email,
+        password: formObject.password
+      })
+      .then(() => console.log(`Successfully signed up!`))
+      .catch(err => console.error(err));
+    }
+  }
+
+  // useEffect(() => {
+
+  // })
   return (
 
     <div className="container">
@@ -42,14 +61,13 @@ function Form() {
           placeholder="password"
         ></input>
       </div>
-        <Link
-          to="/portfolio"
-          className={
-            window.location.pathname === `/portfolio` ? `nav-link active btn btn-primary` : `nav-link btn btn-primary`
-          }
+        <Button
+          className="btn btn-primary"
+          disabled={!(formObject.username && formObject.email && formObject.password)}
+          onClick={handleFormSubmit}
         >
           Sign Up
-        </Link>
+          </Button>
       <div className="nav-item">
         <Link
           to="/login"
