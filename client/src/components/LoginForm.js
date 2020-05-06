@@ -1,59 +1,70 @@
 import React, { useState } from "react";
 import Button from "./Button";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from "react-router-dom";
 
 function LoginForm() {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
+  const [formObject, setFormObject] = useState({});
 
-    function validateForm() {
-        return username.length > 0 && password.length > 0;
-    }
-    function handleFormSubmit(event) {
-        event.preventDefault();
-    }
+  const onChange = (event) => {
+    const { name, value } = event.target;
+    setFormObject({ ...formObject, [name]: value });
+    console.log(formObject);
+  };
+
+  const history = useHistory();
+
+  function validateForm() {
+    return formObject > 0;
+  }
+
+  function handleFormSubmit(event) {
+    event.preventDefault();
+    history.push("/portfolio");
+  }
   return (
     <div className="container">
-      <form onSubmit={handleFormSubmit}>
-        
-          
+      <div className="form-group">
         <label htmlFor="username">Username</label>
         <input
           className="form-control"
-          value={username}
-          type="username"
+          value={formObject.username || ""}
+          name="username"
+          type="text"
           placeholder="username"
-          onChange={event => setUsername(event.target.value)}
+          onChange={onChange}
         ></input>
         <label htmlFor="password">Password</label>
         <input
           className="form-control"
-          value={password}
+          value={formObject.password || ""}
+          name="password"
           type="password"
           placeholder="password"
-          onChange={event => setPassword(event.target.value)}
+          onChange={onChange}
         ></input>
-      </form>
-      <Button disabled={!validateForm()} type="submit"
+      </div>
+      <Button
+        className="btn btn-primary"
+        disabled={!validateForm()}
+        onClick={handleFormSubmit}
+        type="submit"
       >
-
-          Login
+        Login
       </Button>
       <div className="nav-item">
-                <Link
-                to="/signup"
-                className={
-                    window.location.pathname === `/signup` ? `nav-link active` : `nav-link`
-                }
-                >
-                    Are you new here? Click here to create an account!
-                </Link>
-                </div>
+        <Link
+          to="/signup"
+          className={
+            window.location.pathname === `/signup`
+              ? `nav-link active`
+              : `nav-link`
+          }
+        >
+          Are you new here? Click here to create an account!
+        </Link>
+      </div>
     </div>
   );
 }
 
 export default LoginForm;
-
-
-
