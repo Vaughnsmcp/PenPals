@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import API from "../utils/API";
 import Button from "./Button";
 
@@ -11,7 +11,9 @@ function Form() {
   };
   console.log(formObject);
 
-  function handleFormSubmit(event) {
+  const history = useHistory();
+
+  function handleFormSubmit() {
     console.log("handleFormSubmit");
     // event.preventDefault();
     if (formObject.username && formObject.email && formObject.password) {
@@ -20,7 +22,10 @@ function Form() {
         email: formObject.email,
         password: formObject.password,
       })
-        .then(() => console.log(`Successfully signed up!`))
+        .then(() => {
+          console.log(`Successfully signed up!`);
+          history.push("/portfolio");
+        })
         .catch((err) => console.error(err));
     }
   }

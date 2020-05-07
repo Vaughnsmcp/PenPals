@@ -14,7 +14,7 @@ function LoginForm() {
   const history = useHistory();
 
   function validateForm() {
-    return formObject > 0;
+    return formObject.value > 0;
   }
 
   function handleFormSubmit(event) {
