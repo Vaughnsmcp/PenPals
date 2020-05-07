@@ -1,25 +1,12 @@
 import React from "react";
-import Wrapper from "../components/Wrapper";
 import Header from "../components/Header";
+import PortfolioForm from "../components/PortfolioForm";
 
-function Portfolio() {
+function Portfolio(props) {
   return (
     <>
       <Header message="Build your showcase!" />
-      <Wrapper>
-        <form>
-          <div class="form-group">
-            <label for="exampleFormControlFile1">
-              Add your beautiful face!
-            </label>
-            <input
-              type="file"
-              class="form-control-file"
-              id="exampleFormControlFile1"
-            ></input>
-          </div>
-        </form>
-      </Wrapper>
+      <PortfolioForm history={props.history} />
     </>
   );
 }

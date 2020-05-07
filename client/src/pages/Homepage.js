@@ -1,8 +1,7 @@
-
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Wrapper from "../components/Wrapper";
-import API from '../utils/API';
+import API from "../utils/API";
 
 function Homepage() {
   const [writers, setWriters] = useState([]);
@@ -10,15 +9,17 @@ function Homepage() {
   useEffect(() => {
     loadWriters();
   }, []);
+
   function loadWriters() {
     API.getPoets()
-    .then(res => setWriters(res.data))
-    .catch(err => console.error(err));
+      .then((res) => setWriters(res.data))
+      .catch((err) => console.error(err));
   }
-  
+  console.log(writers);
+
   return (
     <>
-      <Header message="Welcome to Pen Pals"/>
+      <Header message="Welcome to Pen Pals" />
       <Wrapper>
         <div className="row">
           {writers.map((writer, index) => (
