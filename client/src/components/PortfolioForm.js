@@ -14,16 +14,22 @@ function PortfolioForm() {
   // const history = useHistory();
 
   function handleFormSubmit() {
-    console.log("handleFormSubmit");
+    console.log("handleFormSubmit", (formObject.name !== "" &&
+      formObject.image !== "" &&
+      formObject.info !== "" &&
+      formObject.link !== "" &&
+      formObject.skills !== "" &&
+      formObject.inquiry !== "" &&
+      formObject.goals !== ""));
 
-    if (
-      formObject.name &&
-      formObject.image &&
-      formObject.info &&
-      formObject.link &&
-      formObject.skills &&
-      formObject.inquiry &&
-      formObject.goals
+    if (formObject.name !== "" &&
+      formObject.image !== "" &&
+      formObject.info !== "" &&
+      formObject.link !== "" &&
+      formObject.skills !== "" &&
+      formObject.inquiry !== "" &&
+      formObject.goals !== ""
+
     ) {
       API.createPoetPortfolio({
         name: formObject.name,
@@ -36,7 +42,7 @@ function PortfolioForm() {
       })
         .then(() => {
           console.log(`Successfully made your Portfolio`);
-          alert(`Congrats! Here's Your Portfolio!`);
+          // alert(`Congrats! Here's Your Portfolio!`);
         })
         .catch((err) => console.error(err));
     }
@@ -109,7 +115,7 @@ function PortfolioForm() {
             formObject.link &&
             formObject.skills &&
             formObject.inquiry &&
-            formObject.goals 
+            formObject.goals
           )
         }
         onClick={handleFormSubmit}
