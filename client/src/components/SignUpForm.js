@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import API from "../utils/API";
 import Button from "./Button";
 
-function Form() {
+function SignUpForm() {
   const [formObject, setFormObject] = useState({});
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -89,4 +89,4 @@ function Form() {
   );
 }
 
-export default Form;
+export default SignUpForm;
