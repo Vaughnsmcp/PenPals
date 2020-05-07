@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import API from "../utils/API";
 import Button from "./Button";
 
-function SignUpForm() {
+function SignUpForm(props) {
   const [formObject, setFormObject] = useState({});
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -22,9 +22,10 @@ function SignUpForm() {
         email: formObject.email,
         password: formObject.password,
       })
-        .then(() => {
-          console.log(`Successfully signed up!`);
-          history.push("/portfolio");
+        .then(({ data }) => {
+          console.log(`Successfully signed up!`, data._id);
+          props.setUserId(data._id);
+          // history.push("/portfolio");
         })
         .catch((err) => console.error(err));
     }

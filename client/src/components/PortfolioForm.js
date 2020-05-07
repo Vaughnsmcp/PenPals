@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import API from "../utils/API";
 import Button from "./Button";
 
@@ -10,7 +10,7 @@ function PortfolioForm() {
     setFormObject({ ...formObject, [name]: value });
   };
 
-  // const history = useHistory();
+  const history = useHistory();
 
   function handleFormSubmit() {
     const hasRequiredFields =
@@ -34,6 +34,7 @@ function PortfolioForm() {
         .then(() => {
           console.log(`Successfully made your Portfolio`);
           alert(`Congrats! Here's Your Portfolio!`);
+          history.push("/poetprofile");
         })
         .catch((err) => console.error(err));
     }
