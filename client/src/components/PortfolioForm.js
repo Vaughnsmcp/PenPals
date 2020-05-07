@@ -14,22 +14,25 @@ function PortfolioForm() {
   // const history = useHistory();
 
   function handleFormSubmit() {
-    console.log("handleFormSubmit", (formObject.name !== "" &&
-      formObject.image !== "" &&
-      formObject.info !== "" &&
-      formObject.link !== "" &&
-      formObject.skills !== "" &&
-      formObject.inquiry !== "" &&
-      formObject.goals !== ""));
+    console.log(
+      "handleFormSubmit",
+      formObject.name !== "" &&
+        formObject.image !== "" &&
+        formObject.info !== "" &&
+        formObject.link !== "" &&
+        formObject.skills !== "" &&
+        formObject.inquiry !== "" &&
+        formObject.goals !== ""
+    );
 
-    if (formObject.name !== "" &&
+    if (
+      formObject.name !== "" &&
       formObject.image !== "" &&
       formObject.info !== "" &&
       formObject.link !== "" &&
       formObject.skills !== "" &&
       formObject.inquiry !== "" &&
       formObject.goals !== ""
-
     ) {
       API.createPoetPortfolio({
         name: formObject.name,
@@ -67,6 +70,15 @@ function PortfolioForm() {
           onChange={onChange}
           type="url"
           placeholder="Input a link to your image!"
+        ></input>
+        <label htmlFor="info">Your info</label>
+        <input
+          className="form-control"
+          value={formObject.info || ""}
+          name="info"
+          onChange={onChange}
+          type="text"
+          placeholder="Tell us about yourself."
         ></input>
         <label htmlFor="link">Your Website</label>
         <input

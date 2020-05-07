@@ -7,12 +7,11 @@ export default {
   createSignUp(signUpData) {
     return axios.post(`/api/signups`, signUpData);
   },
-  createPoetPortfolio(poetData){
+  createPoetPortfolio(poetData) {
+    console.log(poetData);
     return axios.post(`/api/poets`, poetData);
   },
   getLogIn(id) {
-    return axios.get(`/api/poets/${ id}`);
-  } 
-
-
+    return axios.get(`/api/poets/${id}`);
+  },
 };
