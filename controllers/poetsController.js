@@ -23,7 +23,7 @@ module.exports = {
   },
   remove: (req, res) => {
     db.Poet.findById({ _id: req.params.id })
-      .then((dbModel) => dbModel.remove()) // needs extra parans around dbModel? try if it breaks.
+      .then((dbModel) => dbModel.remove()) // needs extra params around dbModel? try if it breaks.
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(400).json(err));
   },

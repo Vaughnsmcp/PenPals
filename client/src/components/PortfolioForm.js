@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import API from "../utils/API";
 import Button from "./Button";
 
@@ -11,7 +11,7 @@ function PortfolioForm() {
   };
   console.log(formObject);
 
-  const history = useHistory();
+  // const history = useHistory();
 
   function handleFormSubmit() {
     console.log("handleFormSubmit");
@@ -25,7 +25,7 @@ function PortfolioForm() {
       formObject.inquiry &&
       formObject.goals
     ) {
-      API.createPortfolio({
+      API.createPoetPortfolio({
         name: formObject.name,
         image: formObject.image,
         info: formObject.info,
@@ -36,7 +36,7 @@ function PortfolioForm() {
       })
         .then(() => {
           console.log(`Successfully made your Portfolio`);
-          history.push("/");
+          alert(`Congrats! Here's Your Portfolio!`);
         })
         .catch((err) => console.error(err));
     }
@@ -59,7 +59,7 @@ function PortfolioForm() {
           value={formObject.image || ""}
           name="image"
           onChange={onChange}
-          type="link"
+          type="url"
           placeholder="Input a link to your image!"
         ></input>
         <label htmlFor="link">Your Website</label>
@@ -68,7 +68,7 @@ function PortfolioForm() {
           value={formObject.link || ""}
           name="link"
           onChange={onChange}
-          type="link"
+          type="url"
           placeholder="link here"
         ></input>
         <label htmlFor="skills">Skills</label>
@@ -109,7 +109,7 @@ function PortfolioForm() {
             formObject.link &&
             formObject.skills &&
             formObject.inquiry &&
-            formObject.goals
+            formObject.goals 
           )
         }
         onClick={handleFormSubmit}
