@@ -8,7 +8,6 @@ export default {
     return axios.post(`/api/signups`, signUpData);
   },
   createPoetPortfolio(poetData) {
-    console.log(poetData);
     return axios.post(`/api/poets`, poetData);
   },
   getLogIn(id) {
