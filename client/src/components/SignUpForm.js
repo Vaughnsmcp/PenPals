@@ -25,7 +25,7 @@ function SignUpForm(props) {
         .then(({ data }) => {
           console.log(`Successfully signed up!`, data._id);
           props.setUserId(data._id);
-          // history.push("/portfolio");
+          history.push("/portfolio");
         })
         .catch((err) => console.error(err));
     }

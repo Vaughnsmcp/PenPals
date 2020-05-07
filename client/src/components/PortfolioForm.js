@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import API from "../utils/API";
 import Button from "./Button";
 
-function PortfolioForm() {
+function PortfolioForm(props) {
   const [formObject, setFormObject] = useState({});
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -23,6 +23,7 @@ function PortfolioForm() {
       formObject.goals !== "";
     if (hasRequiredFields) {
       API.createPoetPortfolio({
+        userId: props.userId,
         name: formObject.name,
         image: formObject.image,
         info: formObject.info,

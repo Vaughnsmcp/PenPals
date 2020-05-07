@@ -23,7 +23,11 @@ function App() {
             component={() => <SignUp setUserId={setUserId} />}
           />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/portfolio" component={Portfolio} />
+          <Route
+            exact
+            path="/portfolio"
+            component={() => <Portfolio userId={userId} />}
+          />
           <Route exact path="/poetprofile" component={PoetProfile} />
         </Switch>
       </div>
