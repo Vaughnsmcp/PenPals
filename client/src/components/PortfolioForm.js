@@ -43,6 +43,9 @@ function PortfolioForm(props) {
         .catch((err) => console.error(err));
     }
   }
+  function updatePoetPortfolio() {
+    API.updatePoetPortfolio(props.poetId)
+  }
   return (
     <div className="container">
       <div className="form-group">

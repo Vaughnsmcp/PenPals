@@ -40,7 +40,7 @@ function PoetProfile(props) {
       .catch((err) => console.error(err));
   }
 
-  function handleDeleteButton() {
+  function handleDelete() {
       API.deletePoet(props.poetId)
     .then(() => { 
       history.push(`/portfolio`);
@@ -75,7 +75,7 @@ function PoetProfile(props) {
               </div>
               <Button 
               className="btn btn-primary"
-              onClick={handleDeleteButton}
+              onClick={handleDelete}
               >
                 Delete
               </Button>

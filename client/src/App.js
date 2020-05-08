@@ -35,7 +35,7 @@ function App() {
             exact
             path="/portfolio/update"
             component={() => (
-              <Portfolio setPoetId={setPoetId} userId={userId} isUpdating/>
+              <Portfolio setPoetId={setPoetId}  poetId={poetId} userId={userId} isUpdating/>
             )}
           />
           <Route
