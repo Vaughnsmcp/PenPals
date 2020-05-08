@@ -10,6 +10,7 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   const [userId, setUserId] = useState("");
+  const [poetId, setPoetId] = useState("");
   console.log({ userId });
   return (
     <Router>
@@ -26,12 +27,14 @@ function App() {
           <Route
             exact
             path="/portfolio"
-            component={() => <Portfolio userId={userId} />}
+            component={() => (
+              <Portfolio setPoetId={setPoetId} userId={userId} />
+            )}
           />
           <Route
             exact
             path="/poetprofile"
-            component={() => <PoetProfile userId={userId} />}
+            component={() => <PoetProfile poetId={poetId} />}
           />
         </Switch>
       </div>

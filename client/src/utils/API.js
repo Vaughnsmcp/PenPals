@@ -13,7 +13,7 @@ export default {
   // getLogIn(id) {
   // return axios.get(`/api/poets/${id}`);
   // },
-  getPoetById(userId) {
-    return axios.get(`/api/poets/${userId}`);
+  getPoetById(id) {
+    return axios.get(`/api/poets/${id}`);
   },
 };

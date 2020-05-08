@@ -4,15 +4,34 @@ import Wrapper from "../components/Wrapper";
 import API from "../utils/API";
 
 function PoetProfile(props) {
-  const [poets, setPoets] = useState([]);
+  const [poets, setPoets] = useState({
+    name: "",
+    image: "",
+    info: "",
+    skills: "",
+    inquiry: "",
+    goals: "",
+    link: "",
+  });
 
   useEffect(() => {
     loadPoets();
   }, []);
 
   function loadPoets() {
-    API.getPoetById()
-      .then((res) => setPoets(res.data._id))
+    API.getPoetById(props.poetId)
+      .then((res) => {
+        setPoets({
+          name: res.data.name,
+          image: res.data.image,
+          info: res.data.info,
+          skills: res.data.skills,
+          inquiry: res.data.inquiry,
+          goals: res.data.goals,
+          link: res.data.link,
+        });
+        console.log(res);
+      })
       .catch((err) => console.error(err));
   }
   console.log(poets);

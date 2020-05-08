@@ -13,6 +13,8 @@ function PortfolioForm(props) {
   const history = useHistory();
 
   function handleFormSubmit() {
+    console.log(props.userId);
+    console.log(formObject);
     const hasRequiredFields =
       formObject.name !== "" &&
       formObject.image !== "" &&
@@ -32,7 +34,8 @@ function PortfolioForm(props) {
         inquiry: formObject.inquiry,
         goals: formObject.goals,
       })
-        .then(() => {
+        .then(({ data }) => {
+          props.setPoetId(data._id);
           console.log(`Successfully made your Portfolio`);
           alert(`Congrats! Here's Your Portfolio!`);
           history.push("/poetprofile");
@@ -68,7 +71,7 @@ function PortfolioForm(props) {
           name="info"
           onChange={onChange}
           type="text"
-          placeholder="Tell us about yourself."
+          placeholder="Tell us about yourself"
         ></input>
         <label htmlFor="link">Your Website</label>
         <input

@@ -5,8 +5,13 @@ import PortfolioForm from "../components/PortfolioForm";
 function Portfolio(props) {
   return (
     <>
+      {console.log(props.userId)}
       <Header message="Build your showcase!" />
-      <PortfolioForm history={props.history} userId={props.userId} />
+      <PortfolioForm
+        history={props.history}
+        userId={props.userId}
+        setPoetId={props.setPoetId}
+      />
     </>
   );
 }
