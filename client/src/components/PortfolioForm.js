@@ -3,29 +3,29 @@ import { useHistory } from "react-router-dom";
 import API from "../utils/API";
 import Button from "./Button";
 
-function PortfolioForm() {
+function PortfolioForm(props) {
   const [formObject, setFormObject] = useState({});
   const onChange = (event) => {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
   };
-  console.log(formObject);
 
   const history = useHistory();
 
   function handleFormSubmit() {
-    console.log("handleFormSubmit");
-
-    if (
-      formObject.name &&
-      formObject.image &&
-      formObject.info &&
-      formObject.link &&
-      formObject.skills &&
-      formObject.inquiry &&
-      formObject.goals
-    ) {
-      API.createPortfolio({
+    console.log(props.userId);
+    console.log(formObject);
+    const hasRequiredFields =
+      formObject.name !== "" &&
+      formObject.image !== "" &&
+      formObject.info !== "" &&
+      formObject.link !== "" &&
+      formObject.skills !== "" &&
+      formObject.inquiry !== "" &&
+      formObject.goals !== "";
+    if (hasRequiredFields) {
+      API.createPoetPortfolio({
+        userId: props.userId,
         name: formObject.name,
         image: formObject.image,
         info: formObject.info,
@@ -34,9 +34,11 @@ function PortfolioForm() {
         inquiry: formObject.inquiry,
         goals: formObject.goals,
       })
-        .then(() => {
+        .then(({ data }) => {
+          props.setPoetId(data._id);
           console.log(`Successfully made your Portfolio`);
-          history.push("/");
+          alert(`Congrats! Here's Your Portfolio!`);
+          history.push("/poetprofile");
         })
         .catch((err) => console.error(err));
     }
@@ -59,8 +61,17 @@ function PortfolioForm() {
           value={formObject.image || ""}
           name="image"
           onChange={onChange}
-          type="link"
+          type="url"
           placeholder="Input a link to your image!"
+        ></input>
+        <label htmlFor="info">Your info</label>
+        <input
+          className="form-control"
+          value={formObject.info || ""}
+          name="info"
+          onChange={onChange}
+          type="text"
+          placeholder="Tell us about yourself"
         ></input>
         <label htmlFor="link">Your Website</label>
         <input
@@ -68,7 +79,7 @@ function PortfolioForm() {
           value={formObject.link || ""}
           name="link"
           onChange={onChange}
-          type="link"
+          type="url"
           placeholder="link here"
         ></input>
         <label htmlFor="skills">Skills</label>

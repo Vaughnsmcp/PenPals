@@ -8,7 +8,7 @@ function SignUp(props) {
     <>
       <Header message={"Sign-Up!"} />
 
-      <SignUpForm history={props.history} />
+      <SignUpForm history={props.history} setUserId={props.setUserId} />
     </>
   );
 }
