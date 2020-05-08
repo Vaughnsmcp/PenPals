@@ -1,7 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import Wrapper from "../components/Wrapper";
+import Button from '../components/Button';
 import API from "../utils/API";
+
+
 
 function PoetProfile(props) {
   const [poets, setPoets] = useState({
@@ -17,6 +21,8 @@ function PoetProfile(props) {
   useEffect(() => {
     loadPoets();
   }, []);
+   
+  const history = useHistory();
 
   function loadPoets() {
     API.getPoetById(props.poetId)
@@ -35,6 +41,19 @@ function PoetProfile(props) {
       .catch((err) => console.error(err));
   }
   console.log(poets);
+
+  function handleDeleteButton() {
+    // if (window.confirm("Are you sure you want to delete your portfolio?")) {
+      API.deletePoet(props.poetId)
+    .then(() => { 
+      history.push(`/portfolio`);
+    })
+    .catch((err) => console.error(err));
+    // } else {
+    //   alert(`Whew! That was close!`)
+    // }
+   
+  }
   return (
     <>
       <Header message={`Poet Profile`} />
@@ -58,6 +77,12 @@ function PoetProfile(props) {
                 <h2>My links:</h2>
                 <a href={poets.link}>Check out my stuff!</a>
               </div>
+              <Button 
+              className="btn btn-primary"
+              onClick={handleDeleteButton}
+              >
+                Delete
+              </Button>
             </div>
           </div>
         </div>
