@@ -26,16 +26,25 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route
             exact
-            path="/portfolio"
+            path="/portfolio/update"
             component={() => (
-              <Portfolio setPoetId={setPoetId} userId={userId} />
+              <Portfolio
+                setPoetId={setPoetId}
+                poetId={poetId}
+                userId={userId}
+                isUpdating={true}
+              />
             )}
           />
           <Route
             exact
-            path="/portfolio/update"
+            path="/portfolio"
             component={() => (
-              <Portfolio setPoetId={setPoetId}  poetId={poetId} userId={userId} isUpdating/>
+              <Portfolio
+                setPoetId={setPoetId}
+                userId={userId}
+                isUpdating={false}
+              />
             )}
           />
           <Route

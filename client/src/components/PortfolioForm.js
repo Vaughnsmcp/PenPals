@@ -1,14 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useHistory } from "react-router-dom";
 import API from "../utils/API";
 import Button from "./Button";
 
 function PortfolioForm(props) {
+  console.log(props);
   const [formObject, setFormObject] = useState({});
   const onChange = (event) => {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
   };
+
+  const findPoet = useCallback(() => {
+    API.getPoetById(props.poetId)
+      .then((res) => setFormObject(res.data))
+      .catch((err) => console.error(err));
+  }, [props.poetId]);
+
+  useEffect(() => {
+    if (props.isUpdating) {
+      findPoet();
+    }
+  }, [findPoet, props.isUpdating]);
 
   const history = useHistory();
 
@@ -44,8 +57,22 @@ function PortfolioForm(props) {
     }
   }
   function updatePoetPortfolio() {
-    API.updatePoetPortfolio(props.poetId)
+    API.updatePoetPortfolio(props.poetId, {
+      name: formObject.name,
+      image: formObject.image,
+      info: formObject.info,
+      link: formObject.link,
+      skills: formObject.skills,
+      inquiry: formObject.inquiry,
+      goals: formObject.goals,
+    })
+      .then(() => {
+        console.log(`Successfully updated your Portfolio`);
+        history.push("/poetprofile");
+      })
+      .catch((err) => console.error(err));
   }
+
   return (
     <div className="container">
       <div className="form-group">
@@ -129,6 +156,23 @@ function PortfolioForm(props) {
         onClick={handleFormSubmit}
       >
         Submit Your Portfolio
+      </Button>
+      <Button
+        className="btn btn-primary"
+        disabled={
+          !(
+            formObject.name &&
+            formObject.image &&
+            formObject.info &&
+            formObject.link &&
+            formObject.skills &&
+            formObject.inquiry &&
+            formObject.goals
+          )
+        }
+        onClick={updatePoetPortfolio}
+      >
+        Update Your Portfolio
       </Button>
     </div>
   );

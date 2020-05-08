@@ -19,7 +19,7 @@ export default {
   deletePoet(id) {
     return axios.delete(`/api/poets/${id}`);
   },
-  updatePoetPortfolio(id) {
-    return axios.put(`/api/poets/${id}`);
-  }
+  updatePoetPortfolio(id, updatedPortfolio) {
+    return axios.put(`/api/poets/${id}`, updatedPortfolio);
+  },
 };
