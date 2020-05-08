@@ -36,23 +36,19 @@ function PoetProfile(props) {
           goals: res.data.goals,
           link: res.data.link,
         });
-        console.log(res);
       })
       .catch((err) => console.error(err));
   }
-  console.log(poets);
 
   function handleDeleteButton() {
-    // if (window.confirm("Are you sure you want to delete your portfolio?")) {
       API.deletePoet(props.poetId)
     .then(() => { 
       history.push(`/portfolio`);
     })
     .catch((err) => console.error(err));
-    // } else {
-    //   alert(`Whew! That was close!`)
-    // }
-   
+  }
+  function redirectUpdateForm() {
+    history.push(`/portfolio/update`)
   }
   return (
     <>
@@ -82,6 +78,12 @@ function PoetProfile(props) {
               onClick={handleDeleteButton}
               >
                 Delete
+              </Button>
+              <Button 
+              className="btn btn-primary"
+              onClick={redirectUpdateForm}
+              >
+                Update
               </Button>
             </div>
           </div>

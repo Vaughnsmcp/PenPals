@@ -33,6 +33,13 @@ function App() {
           />
           <Route
             exact
+            path="/portfolio/update"
+            component={() => (
+              <Portfolio setPoetId={setPoetId} userId={userId} isUpdating/>
+            )}
+          />
+          <Route
+            exact
             path="/poetprofile"
             component={() => <PoetProfile poetId={poetId} />}
           />
