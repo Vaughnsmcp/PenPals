@@ -11,6 +11,8 @@ function Portfolio(props) {
         history={props.history}
         userId={props.userId}
         setPoetId={props.setPoetId}
+        isUpdating={props.isUpdating}
+        poetId={props.poetId}
       />
     </>
   );
