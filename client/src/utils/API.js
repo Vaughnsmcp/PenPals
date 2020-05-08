@@ -10,7 +10,10 @@ export default {
   createPoetPortfolio(poetData) {
     return axios.post(`/api/poets`, poetData);
   },
-  getLogIn(id) {
-    return axios.get(`/api/poets/${id}`);
+  // getLogIn(id) {
+  // return axios.get(`/api/poets/${id}`);
+  // },
+  getPoetById(userId) {
+    return axios.get(`/api/poets/${userId}`);
   },
 };

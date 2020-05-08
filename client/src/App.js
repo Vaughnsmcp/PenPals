@@ -28,7 +28,11 @@ function App() {
             path="/portfolio"
             component={() => <Portfolio userId={userId} />}
           />
-          <Route exact path="/poetprofile" component={PoetProfile} />
+          <Route
+            exact
+            path="/poetprofile"
+            component={() => <PoetProfile userId={userId} />}
+          />
         </Switch>
       </div>
     </Router>
