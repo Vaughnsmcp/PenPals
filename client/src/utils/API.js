@@ -16,4 +16,7 @@ export default {
   getPoetById(id) {
     return axios.get(`/api/poets/${id}`);
   },
+  deletePoet(id) {
+    return axios.delete(`/api/poets/${id}`);
+  }
 };
