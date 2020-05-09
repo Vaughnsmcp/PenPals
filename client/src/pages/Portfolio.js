@@ -5,7 +5,6 @@ import PortfolioForm from "../components/PortfolioForm";
 function Portfolio(props) {
   return (
     <>
-      {console.log(props.userId)}
       <Header message="Build your showcase!" />
       <PortfolioForm
         history={props.history}
@@ -18,4 +17,3 @@ function Portfolio(props) {
   );
 }
 export default Portfolio;
-//need to add more form functionality

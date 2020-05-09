@@ -28,8 +28,7 @@ const poetSeed = [
       "I like to spend afternoons riding my horse around the english countryside. I also like to do my writing in the early mornings.",
     link: "https://www.janeausten.org/jane-austen-books.asp",
     skills: "Comedic romantic comedies, scoffing at the rich and arrogant.",
-    inquiry:
-      "Looking to add more adventure to my novels. looking for adventurous types to collaborate with.",
+    inquiry: "Looking for adventurous types to collaborate with.",
     goals: "Write a lengthy adventure trilogy",
   },
 ];

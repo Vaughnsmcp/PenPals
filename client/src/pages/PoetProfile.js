@@ -1,11 +1,9 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Header from "../components/Header";
 import Wrapper from "../components/Wrapper";
-import Button from '../components/Button';
+import Button from "../components/Button";
 import API from "../utils/API";
-
-
 
 function PoetProfile(props) {
   const [poets, setPoets] = useState({
@@ -21,7 +19,7 @@ function PoetProfile(props) {
   useEffect(() => {
     loadPoets();
   }, []);
-   
+
   const history = useHistory();
 
   function loadPoets() {
@@ -41,14 +39,14 @@ function PoetProfile(props) {
   }
 
   function handleDelete() {
-      API.deletePoet(props.poetId)
-    .then(() => { 
-      history.push(`/portfolio`);
-    })
-    .catch((err) => console.error(err));
+    API.deletePoet(props.poetId)
+      .then(() => {
+        history.push(`/portfolio`);
+      })
+      .catch((err) => console.error(err));
   }
   function redirectUpdateForm() {
-    history.push(`/portfolio/update`)
+    history.push(`/portfolio/update`);
   }
   return (
     <>
@@ -73,16 +71,10 @@ function PoetProfile(props) {
                 <h2>My links:</h2>
                 <a href={poets.link}>Check out my stuff!</a>
               </div>
-              <Button 
-              className="btn btn-primary"
-              onClick={handleDelete}
-              >
+              <Button className="btn btn-primary" onClick={handleDelete}>
                 Delete
               </Button>
-              <Button 
-              className="btn btn-primary"
-              onClick={redirectUpdateForm}
-              >
+              <Button className="btn btn-primary" onClick={redirectUpdateForm}>
                 Update
               </Button>
             </div>

@@ -15,7 +15,6 @@ function Homepage() {
       .then((res) => setWriters(res.data))
       .catch((err) => console.error(err));
   }
-  console.log(writers);
 
   return (
     <>
