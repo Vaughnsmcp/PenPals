@@ -8,7 +8,6 @@ function LoginForm() {
   const onChange = (event) => {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
-    console.log(formObject);
   };
 
   const history = useHistory();

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import API from "../utils/API";
 import Button from "./Button";
@@ -9,13 +9,10 @@ function SignUpForm(props) {
     const { name, value } = event.target;
     setFormObject({ ...formObject, [name]: value });
   };
-  console.log(formObject);
 
   const history = useHistory();
 
   function handleFormSubmit() {
-    console.log("handleFormSubmit");
-    // event.preventDefault();
     if (formObject.username && formObject.email && formObject.password) {
       API.createSignUp({
         username: formObject.username,
@@ -31,9 +28,6 @@ function SignUpForm(props) {
     }
   }
 
-  // useEffect(() => {
-
-  // })
   return (
     <div className="container">
       <div className="form-group">

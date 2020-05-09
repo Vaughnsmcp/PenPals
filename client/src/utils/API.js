@@ -1,5 +1,5 @@
 import axios from "axios";
-//HEEELP!!
+
 export default {
   getPoets() {
     return axios.get(`/api/poets`);
@@ -10,9 +10,6 @@ export default {
   createPoetPortfolio(poetData) {
     return axios.post(`/api/poets`, poetData);
   },
-  // getLogIn(id) {
-  // return axios.get(`/api/poets/${id}`);
-  // },
   getPoetById(id) {
     return axios.get(`/api/poets/${id}`);
   },

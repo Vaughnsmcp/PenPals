@@ -4,7 +4,6 @@ const poetSchema = new Schema({
   userId: { type: String, required: true },
   name: { type: String, required: true },
   image: { type: String },
-  // info can contain skills and goals
   info: { type: String, required: true },
   link: { type: String, required: true },
   skills: { type: String, required: true },
