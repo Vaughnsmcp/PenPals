@@ -4,13 +4,14 @@
 By _**Lisa Cabrera, Spencer Fife, Vaughn McPherson, and Esther Walker**_
 
 
-![TitlePageImage](![image](https://user-images.githubusercontent.com/56268854/81462065-d2f12e80-9164-11ea-9f27-eaf07eb3b2e9.png))
-
-![UMLPageImage](![image](https://files.slack.com/files-pri/TNS5F21K4-F013BPAD64A/image.png))
+![image](client/public/penpals.png)
 
 
 ## Description
 _We are all poets! As a user we want and need a place to share our collective skills. This is a place to share talents and bring in new and different ideas to our craft. Create a profile with your bio, profile image, a website link, skills you have learned and can offer. Your entries are then displayed to a portfolio page that will be shared with other like-minded individuals._
+
+_View our deployed application!_
+- [PenPals]( https://blooming-fortress-04785.herokuapp.com/)
 
 
 ## Setup/Installation Requirements
